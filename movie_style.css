@@ -3,6 +3,20 @@
     box-sizing: border-box;
     margin: 0px;
 }
+/**/
+
+
+.movieS{
+  
+  padding-left: 200px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  
+
+  
+}
+
 
 body{
   display: grid;
@@ -49,26 +63,11 @@ body{
   font-size: large;
   padding: 5px;
 }
-/*
-content of  box  is  affected by what  we write to   box 
-padding for  example
 
- It pushes other elements away from the box
 
-initial  vs   inherit
-*/
-.movieS{
-  
-  padding-left: 200px;
-  position: relative;
 
-  bottom: 62px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  
 
-  
-}
+
 @media only screen and (max-width: 1000px) {
   .movieS{
     background: whitesmoke;
@@ -110,7 +109,7 @@ initial  vs   inherit
   width: 250px;
 
 }
-.movie>p{
+.movie>p , form>label{
   
   text-transform: uppercase;
   background: linear-gradient(to  right ,   red ,   purple);
@@ -132,9 +131,89 @@ initial  vs   inherit
   position: relative;
   padding-top: 100px;
 }
-.singlePage{
+
+ header{
+   display: grid;
+   grid-template-columns: repeat(4,1fr);
+   position:relative;
+   
+ }   
+
+
+
+ @media only screen and (max-width: 1000px) {
+  header{
+    background: whitesmoke;
+    grid-template-columns: 1fr 1fr;
+    padding-left: 80px;
+    
+  }
+}
+ 
+ input{
+   width: 200px;
+   margin-left: 40% ;
+   margin-top: 100px;
+ }
+ input+.btn{
+   margin-left: 35%;
+ }
+ .bar{
+  width: 45px;
+  height: 5px;
+  background-color: black;
+  margin-top: 2px;
+  transition: 1s;
+ }
+ .menu{
+   margin-left: 200px;
+   margin-top: 50px;
+   display: none;
+   
+
+ }
+ .menu:hover >.bar{
+   background: linear-gradient(to left ,   yellow ,  red);
+   border: 1px solid black;
+   width: 48px;
+   height:6px ;
+ }
+
+
+@media only screen and (max-width: 600px) {
+  .menu{
+    display: block;
+    margin-left: 100px;
+  }
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+  header{
+    display: none;
+  }
+  
+}
+
+.grid{
   display: grid;
   grid-template-columns: 1fr;
-  width: 900px;
-  padding-left: 300px;
+}
+#close_categories{
+  display: none;
+  width: 50px;
+  position: absolute;
+  right: 0px;
+  
+}
+
+
+@media only screen and (max-width: 600px){
+
+  #close_categories{
+    display: block;
+    
+  }
 }

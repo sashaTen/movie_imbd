@@ -217,3 +217,60 @@ body{
     
   }
 }
+
+.details_container{
+  margin-left: 200px;
+  margin-top: 100px;
+  width: 80%;
+  display: grid;
+  grid-template-columns: 500px 500px;
+  position: relative;
+  row-gap: 100px;
+  justify-content: space-evenly;
+  grid-template-areas:  "image details_of_movie"
+                         "recommend recommend" 
+                         "review  review";
+}
+.details_container>img{
+  width: 400px;
+  border: lightseagreen 3px  solid;
+  grid-area: image
+  
+  
+}
+
+.singleMovie_body{
+  background-color:black;
+  position: relative;
+}
+
+.movie_details{
+  grid-area: details_of_movie ;
+  color: white;
+  text-transform: capitalize;
+  display: grid;
+  border: lightseagreen 3px solid;
+  padding: 50px;
+}
+
+
+.reviews{
+  grid-area: review;
+  color: white;
+  display:none ;
+  row-gap: 10px;
+  
+}
+.recommendations>p{
+
+  color: yellow;
+}
+.recommendations{
+  grid-area: recommend;
+}
+
+.individual_review{
+  border: solid 3px lightseagreen;
+  display: block;
+
+}

@@ -12,7 +12,10 @@ async  function load(url){
   console.log(resp.results);
   show_most_popular(resp.results)
 }
-
+//"tt10872600"
+//04c35731a5ee918f014970082a0088b1
+//https://developers.themoviedb.org/3/movies/get-movie-external-ids
+//https://developers.themoviedb.org/3/find/find-by-id
 
 
 const  show_most_popular  =(movie_list)=>{
@@ -28,8 +31,9 @@ const  show_most_popular  =(movie_list)=>{
 
 
 const display_movies  = (movie , i)=>{
+
   let index =   i;
-  let  movie_title =  movie.title
+  
   if(movie.poster_path){
     return    `<div class="movie">
     <p> ${movie.title}</p>
@@ -39,7 +43,7 @@ const display_movies  = (movie , i)=>{
     <div  class='description'>
       <button   onclick   = 'hide(${index})'  class='btn_hide'>X</button>
       <p  class='description_text'>${movie.overview}</p>
-      <button onclick='movieDetails( ${index})' class= 'btn'>more info </button>
+      <a href='http://127.0.0.1:5500/movie_app/singleMovie.html?${movie.id}' class= 'btn'>more info </a>
    
     </div>
   
@@ -114,4 +118,3 @@ form.addEventListener("submit", (e) => {
       search.value = "";
   }
 });
-

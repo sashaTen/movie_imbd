@@ -1,3 +1,4 @@
+
 //  https://api.themoviedb.org/3/624860/reviews?api_key=04c35731a5ee918f014970082a0088b1&language=en-US   - REVIEW
 //  key     04c35731a5ee918f014970082a0088b1
 //   https://api.themoviedb.org/3/movie/${}?api_key=04c35731a5ee918f014970082a0088b1&language=en-US         -   MOVIE DETAILS
@@ -8,6 +9,7 @@ let  url  =   window.location.href
 let  movie_id   =     new URL(url).search.substring(1)
 let  poster   =    document.getElementById('poster')
 let img_api_search  = 'https://image.tmdb.org/t/p/w1280/'
+const recommendations_section =  document.querySelector('.recommendations')
 
 let   movie_details_url   =   ` https://api.themoviedb.org/3/movie/${movie_id}?api_key=04c35731a5ee918f014970082a0088b1&language=en-US`
 let movie_description =   document.querySelector('.movie_details') 
@@ -61,21 +63,45 @@ const  comments   = document.querySelector('.comments')
 
 //comments.style.display 'none'
 let review_section  = document.getElementById('reviews')
-document.getElementById('show_hide').addEventListener('click' ,  ()=>{
+document.getElementById('show_comments').addEventListener('click' ,  ()=>{
 
  console.log(review_section);
  review_section.style.display='block'
 })
 
 
+async  function load_recommendations(){
+  const data   =  await  fetch(`https://api.themoviedb.org/3/movie/${movie_id}/recommendations?api_key=04c35731a5ee918f014970082a0088b1&language=en-US&page=1`)
+  const resp   =   await  data.json()
+  const  list  = resp.results
+  console.log(list );
+  if(list.length < 10){
+    for(let   i   = 0 ;  i < list.length ;  i ++){
+         recommendations_section.innerHTML+=`
+          <div class="img_and_text">
+          <img src="${ img_api_search }${list[i].poster_path}" alt="" >
+          <h2>${list[i].title}</h2>
+          </div>
+         `
+    }
+  }
+else   for(let i   = 0 ;  i < 10 ;  i  ++){
+  recommendations_section.innerHTML+=`
+  <div class="img_and_text">
+  <img class='img' src='${ img_api_search }${list[i].poster_path}' alt="" >
+  <h2 class='recommendation_title'>  
+  <a   href="http://127.0.0.1:5500/movie_app/singleMovie.html?${list[i].id}">  ${list[i].title}</a>     </h2>
+  </div>
+ `
+}
+  
+}
 
+load_recommendations()
 
-
-
-
-
-
-
+document.getElementById('hide_comments').addEventListener('click' ,  ()=>{
+  review_section.style.display='none'
+})
 
 
 

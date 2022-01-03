@@ -90,7 +90,7 @@ else   for(let i   = 0 ;  i < 10 ;  i  ++){
   <div class="img_and_text">
   <img class='img' src='${ img_api_search }${list[i].poster_path}' alt="" >
   <h2 class='recommendation_title'>  
-  <a   href="http://127.0.0.1:5500/movie_app/singleMovie.html?${list[i].id}">  ${list[i].title}</a>     </h2>
+  <a   href="http://127.0.0.1:5500/singleMovie.html?${list[i].id}">  ${list[i].title}</a>     </h2>
   </div>
  `
 }

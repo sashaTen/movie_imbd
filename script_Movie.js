@@ -43,7 +43,7 @@ const display_movies  = (movie , i)=>{
     <div  class='description'>
       <button   onclick   = 'hide(${index})'  class='btn_hide'>X</button>
       <p  class='description_text'>${movie.overview}</p>
-      <a href='http://127.0.0.1:5500/movie_app/singleMovie.html?${movie.id}' class= 'btn'>more info </a>
+      <a href='http://127.0.0.1:5500/singleMovie.html?${movie.id}' class= 'btn'>more info </a>
    
     </div>
   
